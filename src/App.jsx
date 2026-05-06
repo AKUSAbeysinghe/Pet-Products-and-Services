@@ -3,17 +3,19 @@ import { BrowserRouter, Routes, Route, Outlet, useLocation } from "react-router-
 import Navbar from "./components/Navbar";
 import Home from "./components/Pages/Home";
 
-import Suppliment from "./components/Pages/Suppliment.jsx";
+import Shop from "./components/Pages/petsupplier.jsx"
 import Footer from "./components/Footer";
-import About from "./components/Ourstory";
+
+// import About from "./components/Ourstory";
 
 // import Chefs from "./components/Pages/OurChefs";
 import PrivacyPolicy from "./components/Pages/Privacy";
 import TermsOfService from "./components/Pages/Terms.jsx";
-import FAQ from "./components/Pages/FAQ.jsx";
-import Parmacy from "./components/Pages/parmacy.jsx";
-import Fitness from "./components/Pages/fitness.jsx";
+// import FAQ from "./components/Pages/FAQ.jsx";
+
 import Contact from "./components/Pages/Contact.jsx";
+import Grooming from "./components/Pages/grooming.jsx";
+import VeterinaryCare from "./components/Pages/vetcare.jsx";
 
 // ✅ Admin Pages
 import Login from "./Admin/Login.jsx";
@@ -57,24 +59,26 @@ function App() {
       <Routes>
         {/* ✅ CUSTOMER PAGES - WITH LAYOUT */}
         <Route path="/" element={<Layout><Home /></Layout>} />
+        
 
 
-        <Route path="/Supplements" element={<Layout><Suppliment/></Layout>} />
+
+        {/* <Route path="/Supplements" element={<Layout><Suppliment/></Layout>} />
         <Route path="/Fitness" element={<Layout><Fitness/></Layout>} />
-        {/* <Route path="/Partners" element={<Layout><DiningRoom/></Layout>} /> */}
+        
        
-        {/*
-        <Route path="/casual-dining" element={<Layout><CasualDining /></Layout>} />
-        <Route path="/desserts" element={<Layout><Desserts /></Layout>} />
-        <Route path="/starts" element={<Layout><Starts /></Layout>} />
-        <Route path="/mains" element={<Layout><Mains /></Layout>} />
-        <Route path="/cafes-bakeries" element={<Layout><Bakery /></Layout>} /> */}
+       
         <Route path="/about" element={<Layout><About /></Layout>} />
 
         <Route path="/privacy-policy" element={<Layout><PrivacyPolicy /></Layout>} />
         <Route path="/terms-of-service" element={<Layout><TermsOfService /></Layout>} />
         <Route path="/FAQ" element={<Layout><FAQ /></Layout>} />
         <Route path="/pharmacy" element={<Layout><Parmacy/></Layout>} />
+        <Route path="/contact" element={<Layout><Contact/></Layout>} /> */}
+
+        <Route path="/Shop" element={<Layout><Shop/></Layout>} />
+        <Route path="/Grooming" element={<Layout><Grooming/></Layout>} />
+        <Route path="/vetcare" element={<Layout><VeterinaryCare/></Layout>} />
         <Route path="/contact" element={<Layout><Contact/></Layout>} />
         
         {/* ✅ ADMIN PAGES - NO LAYOUT! */}

@@ -1,63 +1,69 @@
 import React from 'react';
-import Mains from '../assets/Mains/Banner.jpg';
+import { Heart, Star, CheckCircle } from 'lucide-react';
+import Pets from "../assets/Mains/Cancer Statistics In Pets - Types of Cancer Found in Dogs & Cats.jpg";
+
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-[#FCFAF7] px-8 py-20 overflow-hidden">
-
-      {/* Blurred Background Image */}
-      <div
-        className="absolute inset-0 bg-center bg-cover opacity-40 blur-xl scale-110"
-        style={{
-          backgroundImage: `url(${Mains})`,
-        }}
-      />
-
-      {/* Content */}
-      <div className="relative max-w-3xl mx-auto text-center">
-
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-gray-200 rounded-full text-sm text-gray-700 bg-white shadow-sm">
-          <span>✨</span>
-          <span>Your wellness, simplified</span>
-        </div>
-
-        {/* Heading */}
-        <h1 className="text-6xl font-semibold text-gray-900 leading-tight mb-6">
-          Health & wellness, <br />
-          <span className="text-[#2E7D56]">
-            all in one place.
-          </span>
-        </h1>
-
-        {/* Subtext */}
-        <p className="text-lg text-gray-600 mb-10 max-w-xl mx-auto">
-          From trusted pharmacies and premium supplements to modern fitness
-          clubs — Vivara connects you with everything you need to feel your best.
-        </p>
-
-        {/* Buttons */}
-        <div className="flex items-center justify-center gap-4 mb-10">
-          <button className="flex items-center gap-2 px-6 py-3 bg-[#2E7D56] text-white rounded-full font-medium hover:bg-[#256a47] transition-all">
-            Explore wellness <span>→</span>
-          </button>
-
-          <button className="px-6 py-3 bg-[#F0EFE9] text-gray-800 rounded-full font-medium hover:bg-[#e4e2da] transition-all">
-            For partners
-          </button>
-        </div>
-
-        {/* Trust Indicator */}
-        <div className="flex items-center justify-center gap-3">
-          <div className="flex text-orange-400 text-xl">
-            ★★★★★
+    <section className="bg-[#FDF2E9] min-h-[600px] px-6 py-12 md:px-16 md:py-24 flex items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        {/* Left Content */}
+        <div className="space-y-8">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-[#D1FAE5] text-[#065F46] px-4 py-1.5 rounded-full text-sm font-semibold">
+            <Heart size={16} fill="currentColor" />
+            Loved by 10,000+ pet parents
           </div>
 
-          <span className="text-gray-600 font-medium">
-            Trusted by <span className="font-bold">2M+</span> members worldwide
-          </span>
+          {/* Headline */}
+          <h1 className="text-5xl md:text-7xl font-bold text-[#2D1B14] leading-[1.1] tracking-tight">
+            Everything <br />
+            your pet <br />
+            needs, in one <br />
+            place.
+          </h1>
+
+          {/* Subheadline */}
+          <p className="text-xl text-[#5C4D46] max-w-md leading-relaxed">
+            Premium supplies, gentle grooming & boarding, and trusted veterinary 
+            care — delivered with warmth and a wagging tail.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4">
+            <button className="bg-[#BC4626] text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-[#A33B1F] transition-all shadow-lg shadow-orange-900/10">
+              Shop Now
+            </button>
+            <button className="bg-white text-[#2D1B14] border border-gray-100 px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-50 transition-all shadow-sm">
+              Book Grooming
+            </button>
+          </div>
+
+          {/* Trust Badges */}
+          <div className="flex items-center gap-8 pt-4">
+            <div className="flex items-center gap-2 text-[#5C4D46] font-medium">
+              <Star className="text-[#BC4626]" size={18} fill="currentColor" />
+              <span>4.9/5 reviews</span>
+            </div>
+            <div className="flex items-center gap-2 text-[#5C4D46] font-medium">
+              <CheckCircle className="text-[#34D399]" size={18} />
+              <span>Certified vets</span>
+            </div>
+          </div>
         </div>
 
+        {/* Right Image */}
+        <div className="relative">
+          <div className="rounded-[3rem] overflow-hidden shadow-2xl">
+            <img 
+              src={Pets}
+              alt="Golden Retriever and long-haired cat" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        
       </div>
     </section>
   );
