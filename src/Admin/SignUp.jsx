@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -28,7 +27,7 @@ const Signup = () => {
       if (data.success) {
         setMessage("Signup successful!");
         setTimeout(() => {
-          navigate("/login"); // redirect to login page after 2 seconds
+          navigate("/login"); 
         }, 2000);
       } else {
         setMessage(data.message || "Signup failed. Please try again.");
@@ -39,9 +38,12 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-10 rounded-lg shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-semibold mb-8 text-center text-gray-900">Sign Up</h2>
+    <div className="min-h-screen flex items-center justify-center bg-[#FDF8F3]">
+      <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 w-full max-w-sm">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-[#2D1B14]">Create Account</h2>
+          <p className="text-[#5C4D46] mt-2">Join Pawsome Admin</p>
+        </div>
 
         <div className="space-y-6">
           <input
@@ -49,7 +51,7 @@ const Signup = () => {
             name="username"
             placeholder="Username"
             onChange={handleChange}
-            className="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:border-gray-500 transition-colors text-gray-900 placeholder-gray-400"
+            className="w-full p-4 border border-gray-200 rounded-2xl focus:outline-none focus:border-[#BC4626] transition-colors text-[#2D1B14] placeholder-[#9C8E85]"
             required
           />
 
@@ -58,7 +60,7 @@ const Signup = () => {
             name="email"
             placeholder="Email"
             onChange={handleChange}
-            className="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:border-gray-500 transition-colors text-gray-900 placeholder-gray-400"
+            className="w-full p-4 border border-gray-200 rounded-2xl focus:outline-none focus:border-[#BC4626] transition-colors text-[#2D1B14] placeholder-[#9C8E85]"
             required
           />
 
@@ -67,14 +69,14 @@ const Signup = () => {
             name="password"
             placeholder="Password"
             onChange={handleChange}
-            className="w-full p-2.5 border border-gray-300 rounded-md focus:outline-none focus:border-gray-500 transition-colors text-gray-900 placeholder-gray-400"
+            className="w-full p-4 border border-gray-200 rounded-2xl focus:outline-none focus:border-[#BC4626] transition-colors text-[#2D1B14] placeholder-[#9C8E85]"
             required
           />
 
           <button
             type="button"
             onClick={handleSubmit}
-            className="w-full bg-gray-900 text-white py-2 rounded-md hover:bg-gray-800 transition-colors duration-200 font-medium"
+            className="w-full bg-[#BC4626] text-white py-4 rounded-2xl hover:bg-[#A33B1F] transition-all duration-200 font-semibold text-lg"
           >
             Sign Up
           </button>
@@ -82,17 +84,17 @@ const Signup = () => {
 
         {message && (
           <p
-            className={`text-center mt-5 text-sm font-medium ${
-              message === "Signup successful!" ? "text-gray-700" : "text-red-500"
+            className={`text-center mt-6 text-sm font-medium ${
+              message === "Signup successful!" ? "text-green-600" : "text-red-500"
             }`}
           >
             {message}
           </p>
         )}
 
-        <p className="text-center mt-5 text-sm text-gray-600">
+        <p className="text-center mt-6 text-sm text-[#5C4D46]">
           Already have an account?{" "}
-          <a href="/login" className="text-gray-900 hover:underline font-medium">
+          <a href="/login" className="text-[#BC4626] hover:underline font-medium">
             Log in
           </a>
         </p>
@@ -102,6 +104,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-
-

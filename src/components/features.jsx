@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ShoppingBag, Scissors, Stethoscope } from 'lucide-react';
 import Shop from "../assets/supplies/dog toys 🐾.jpg";
 import Grooming from '../assets/Grooming/Pet grooming.jpg';
@@ -10,19 +11,22 @@ const FeaturesSection = () => {
       title: "Pet Supplies",
       description: "Curated foods, toys, beds & accessories from brands you trust.",
       icon: <ShoppingBag size={20} className="text-[#1B3B36]" />,
-      image: Shop, // Replace with actual pet supply image
+      image: Shop,
+      link: "/Shop"
     },
     {
       title: "Grooming & Boarding",
       description: "Spa-style baths, cuts, and cozy overnight stays.",
       icon: <Scissors size={20} className="text-[#1B3B36]" />,
-      image: Grooming, // Replace with dog grooming image
+      image: Grooming,
+      link: "/grooming"
     },
     {
       title: "Veterinary Care",
       description: "Wellness exams, vaccines, and diagnostics from caring vets.",
       icon: <Stethoscope size={20} className="text-[#1B3B36]" />,
-      image: VeterinaryCare, // Replace with vet care image
+      image: VeterinaryCare,
+      link: "/vetcare"
     }
   ];
 
@@ -66,12 +70,13 @@ const FeaturesSection = () => {
                   {feature.description}
                 </p>
 
-                <a 
-                  href="#" 
+                {/* Updated Explore Link */}
+                <Link 
+                  to={feature.link}
                   className="inline-flex items-center text-[#BC4626] font-bold text-lg hover:underline transition-all"
                 >
                   Explore <span className="ml-2">→</span>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

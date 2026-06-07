@@ -45,12 +45,16 @@ const Navbar = () => {
         })}
       </div>
 
-      {/* CTA Button */}
-      <Link to="/book-visit">
+      {/* CTA Button - Updated with WhatsApp */}
+      <a 
+        href="https://wa.me/1234567890" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
         <button className="bg-[#BC4626] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#A33B1F] transition-all shadow-sm">
           Book a Visit
         </button>
-      </Link>
+      </a>
     </nav>
   );
 };

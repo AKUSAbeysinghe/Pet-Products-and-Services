@@ -30,9 +30,9 @@ const Footer = () => {
           <div className="md:col-span-3 space-y-4">
             <h4 className="text-xl font-bold text-[#2D1B14]">Explore</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-[#5C4D46] hover:text-[#BC4626] transition-colors text-lg">Pet Supplies</a></li>
-              <li><a href="#" className="text-[#5C4D46] hover:text-[#BC4626] transition-colors text-lg">Grooming & Boarding</a></li>
-              <li><a href="#" className="text-[#5C4D46] hover:text-[#BC4626] transition-colors text-lg">Veterinary Care</a></li>
+              <li><a href="/Shop" className="text-[#5C4D46] hover:text-[#BC4626] transition-colors text-lg">Pet Supplies</a></li>
+              <li><a href="/grooming" className="text-[#5C4D46] hover:text-[#BC4626] transition-colors text-lg">Grooming & Boarding</a></li>
+              <li><a href="/vetcare" className="text-[#5C4D46] hover:text-[#BC4626] transition-colors text-lg">Veterinary Care</a></li>
             </ul>
           </div>
 

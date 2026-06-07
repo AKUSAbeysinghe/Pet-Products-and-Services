@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PawPrint, Clock, Moon, Star } from 'lucide-react';
+import { PawPrint, Star } from 'lucide-react';
 import grooming from "../../assets/Grooming/Master the Art of Dog Grooming with Pro Shears.jpg";
 
 const GroomingHeader = () => {
@@ -35,15 +35,22 @@ const GroomingHeader = () => {
 
 /* ================= SERVICE CARD ================= */
 const ServiceCard = ({ service }) => {
-  const isPopular = service.is_popular || service.name.toLowerCase().includes("full groom");
+  const isPopular = service.popular || service.name.toLowerCase().includes("full groom");
 
   return (
     <div className="bg-white rounded-3xl shadow-md border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
       <div className="relative">
         <img
-          src={service.image_url ? `http://localhost/pharmacy-project/${service.image_url}` : "https://via.placeholder.com/600x400?text=Grooming+Service"}
+          src={
+            service.image_url 
+              ? `http://localhost/pet_care/${service.image_url}` 
+              : "https://via.placeholder.com/600x400?text=Grooming+Service"
+          }
           alt={service.name}
           className="w-full h-64 object-cover"
+          onError={(e) => {
+            e.target.src = "https://via.placeholder.com/600x400?text=Image+Not+Found";
+          }}
         />
 
         {isPopular && (
@@ -53,8 +60,7 @@ const ServiceCard = ({ service }) => {
         )}
 
         <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[#2D1B14] px-5 py-2 rounded-2xl font-bold text-xl shadow">
-          ${service.price}
-          {service.per_night && <span className="text-sm font-normal">/night</span>}
+          Rs. {Number(service.price).toLocaleString("en-LK")}
         </div>
       </div>
 
@@ -62,26 +68,17 @@ const ServiceCard = ({ service }) => {
         <h3 className="text-3xl font-bold text-[#2D1B14] mb-4">{service.name}</h3>
         
         <p className="text-[#5C4D46] text-[15.5px] leading-relaxed mb-6 flex-grow">
-          {service.description}
+          {service.description || "Professional grooming service for your beloved pet."}
         </p>
 
-        {service.features && service.features.length > 0 && (
-          <ul className="space-y-2 mb-8 text-[#5C4D46]">
-            {service.features.map((feature, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="text-[#BC4626] mt-1">•</span>
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        <button 
-          onClick={() => alert(`Booking ${service.name}...`)} // Replace with real booking logic
-          className="mt-auto w-full py-4 bg-[#2D1B14] hover:bg-black text-white rounded-2xl font-semibold transition"
-        >
-          Book {service.name}
-        </button>
+        <div className="mt-auto">
+          <button 
+            onClick={() => alert(`Booking ${service.name}...`)} // Replace with real booking modal later
+            className="w-full py-4 bg-[#2D1B14] hover:bg-black text-white rounded-2xl font-semibold transition"
+          >
+            Book Now
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -94,37 +91,42 @@ const Grooming = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const fetchServices = async () => {
+    const fetchGroomingServices = async () => {
       try {
-        // Change this endpoint according to your backend
-        const res = await fetch("http://localhost/pharmacy-project/api/get_services.php?category=grooming");
+        // Fetch products under Grooming category
+        const res = await fetch("http://localhost/pet_care/api/get_products.php?category=grooming");
+        
+        if (!res.ok) throw new Error("Failed to connect to server");
+
         const data = await res.json();
 
         if (data.success) {
           setServices(data.data || []);
         } else {
-          setError("Could not load grooming services");
+          setError(data.message || "Could not load grooming services");
         }
       } catch (err) {
-        setError("Failed to fetch services");
+        setError("Failed to fetch grooming services. Please try again later.");
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchServices();
+    fetchGroomingServices();
   }, []);
 
   return (
     <div className="bg-white min-h-screen">
       {error && (
-        <div className="p-4 bg-red-100 text-red-700 text-center font-medium">{error}</div>
+        <div className="p-4 bg-red-100 text-red-700 text-center font-medium">
+          {error}
+        </div>
       )}
 
       {loading && (
         <div className="py-20 text-center text-xl text-[#5C4D46]">
-          Loading Grooming Services...
+          Loading Premium Grooming Services...
         </div>
       )}
 
@@ -146,8 +148,8 @@ const Grooming = () => {
               ))
             ) : (
               !loading && (
-                <p className="col-span-3 text-center text-gray-500 py-10">
-                  No services available at the moment.
+                <p className="col-span-3 text-center text-gray-500 py-10 text-lg">
+                  No grooming services available at the moment.
                 </p>
               )
             )}
@@ -155,7 +157,7 @@ const Grooming = () => {
         </div>
       </section>
 
-      {/* Why Choose Our Grooming Section */}
+      {/* Why Choose Us Section */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-[#2D1B14] mb-6">Why Pet Parents Trust Us</h2>

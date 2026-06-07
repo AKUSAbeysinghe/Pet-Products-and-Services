@@ -20,11 +20,17 @@ const CTASection = () => {
               Drop in for a treat or book your pet's next appointment online.
             </p>
 
-            {/* CTA Button */}
+            {/* CTA Button - Linked to WhatsApp */}
             <div className="pt-4">
-              <button className="bg-[#BC4626] text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-[#A33B1F] transition-all shadow-lg shadow-orange-900/20 active:scale-95">
-                Book Appointment
-              </button>
+              <a 
+                href="https://wa.me/1234567890" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <button className="bg-[#BC4626] text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-[#A33B1F] transition-all shadow-lg shadow-orange-900/20 active:scale-95">
+                  Book Appointment
+                </button>
+              </a>
             </div>
           </div>
         </div>

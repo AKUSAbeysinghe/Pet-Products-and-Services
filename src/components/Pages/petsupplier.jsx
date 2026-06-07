@@ -42,7 +42,7 @@ const PetCard = ({ item }) => (
   <div className="bg-white rounded-3xl shadow-md border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300">
     <div className="relative">
       <img
-        src={item.image_url ? `http://localhost/pharmacy-project/${item.image_url}` : "https://via.placeholder.com/600x400?text=Pet+Product"}
+        src={item.image_url ? `http://localhost/pet_care/${item.image_url}` : "https://via.placeholder.com/600x400?text=Pet+Product"}
         alt={item.name}
         className="w-full h-72 object-cover"
         onError={(e) => {
@@ -139,7 +139,7 @@ const PetSupplies = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("http://localhost/pharmacy-project/api/get_products.php?category_id=1"); // Change category_id as needed
+        const res = await fetch("http://localhost/pet_care/api/get_products.php?category_id=1"); // Change category_id as needed
         const data = await res.json();
 
         if (data.success) {

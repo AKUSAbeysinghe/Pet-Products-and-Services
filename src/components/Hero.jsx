@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Heart, Star, CheckCircle } from 'lucide-react';
 import Pets from "../assets/Mains/Cancer Statistics In Pets - Types of Cancer Found in Dogs & Cats.jpg";
-
 
 const HeroSection = () => {
   return (
@@ -32,12 +32,17 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4">
-            <button className="bg-[#BC4626] text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-[#A33B1F] transition-all shadow-lg shadow-orange-900/10">
-              Shop Now
-            </button>
-            <button className="bg-white text-[#2D1B14] border border-gray-100 px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-50 transition-all shadow-sm">
-              Book Grooming
-            </button>
+            <Link to="/Shop">
+              <button className="bg-[#BC4626] text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-[#A33B1F] transition-all shadow-lg shadow-orange-900/10">
+                Shop Now
+              </button>
+            </Link>
+            
+            <Link to="/grooming">
+              <button className="bg-white text-[#2D1B14] border border-gray-100 px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-50 transition-all shadow-sm">
+                Book Grooming
+              </button>
+            </Link>
           </div>
 
           {/* Trust Badges */}
